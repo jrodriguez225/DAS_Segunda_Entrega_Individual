@@ -1,0 +1,104 @@
+<resources>
+
+    // Layouts
+    <string name="app_name">OFFERAPP</string>
+    <string name="en">en</string>
+    <string name="es">es</string>
+    <string name="eu">eu</string>
+    <string name="contentdescription">contentDescription</string>
+    <string name="contactar">contact</string>
+    <string name="de">From:</string>
+    <string name="para">To:</string>
+    <string name="mensaje">Message</string>
+    <string name="enviar">send</string>
+    <string name="buscar">Search</string>
+    <string name="ofrecer">Offer</string>
+    <string name="favoritos">Favorites</string>
+    <string name="chats">Chats</string>
+    <string name="nombre">Name:</string>
+    <string name="descripcion">Description:</string>
+    <string name="empleo">job</string>
+    <string name="servicio">service</string>
+    <string name="introduce_un_nombre">Enter a name</string>
+    <string name="introduce_una_descripci_n">Enter a description</string>
+    <string name="perfil">Profile</string>
+    <string name="servicios">Services</string>
+    <string name="empleos">Jobs</string>
+    <string name="ofertas">Offers</string>
+    <string name="contrase_a">Password</string>
+    <string name="nombre_de_usuario">Username</string>
+    <string name="introduce_tu_nombre_de_usuario">Enter your username</string>
+    <string name="introduce_tu_contrase_a">Enter your password</string>
+    <string name="iniciar_sesi_n">log in</string>
+    <string name="registrarse">sign in</string>
+    <string name="cerrar_sesi_n">Sign off</string>
+    <string name="correo">Mail</string>
+    <string name="introduce_un_nombre_de_usuario">Enter a username</string>
+    <string name="introduce_una_contrase_a">Enter a password</string>
+    <string name="introduce_un_correo">Enter a mail</string>
+    <string name="recuperar_contrase_a">recover password</string>
+    <string name="temaOscuro">Dark theme?</string>
+    <string name="mantenerSesionTitle">Keep me signed in?</string>
+    <string name="mantenerSesionSummary">Check this option if you would like to stay logged in</string>
+    <string name="cambiarIdioma">Change language</string>
+    <string name="elegirIdioma">Choose a language</string>
+
+    // Toast
+    <string name="toastFavoritos">Has been removed from your favorites the offer</string>
+    <string name="toastOfertas">Has been removed the offer</string>
+    <string name="toastMensajes">Has been removed the message</string>
+    <string name="toastChats">Has been deleted the chat you had with the user</string>
+
+    // Dialogs
+    <string name="eliminarFavoritoTitulo">Remove offer from favorites</string>
+    <string name="eliminarFavoritoMensaje">Are you absolutely sure you want to remove the offer from your favourites?</string>
+    <string name="eliminarMensajeTitulo">Delete message</string>
+    <string name="eliminarMensajeMensaje">Are you absolutely sure you want to delete the message?</string>
+    <string name="registrarUsuarioTitulo">Registered user</string>
+    <string name="registrarUsuarioMensaje">The user has successfully registered</string>
+    <string name="errorAlRegistrarse">Failed to register</string>
+    <string name="usuarioExistente">User already exists</string>
+    <string name="camposVacios">Fields cannot be empty</string>
+    <string name="identificacionUsuarioTitulo">Identified user</string>
+    <string name="identificacionUsuarioMensaje">The user has successfully logged in</string>
+    <string name="errorAlIniciarSesion">Failed to login</string>
+    <string name="usuarioNoExistente">User does not exist</string>
+    <string name="credencialesErroneas">The username and password do not match</string>
+    <string name="cerrarAplicacionTitulo">Close app</string>
+    <string name="cerrarAplicacionMensaje">Are you absolutely sure you want to close the app?</string>
+    <string name="cerrarSesionMensaje">Are you absolutely sure you want to log out?</string>
+    <string name="eliminarChatTitulo">Delete chat</string>
+    <string name="eliminarChatMensaje">Are you absolutely sure you want to delete the chat?</string>
+    <string name="eliminarOfertaTitulo">Delete offer</string>
+    <string name="eliminarOfertaMensaje">Are you absolutely sure you want to remove the offer?</string>
+    <string name="crearOfertaTitulo">Offer created</string>
+    <string name="crearOfertaMensaje">The offer has been created successfully</string>
+    <string name="modificarOfertaTitulo">Modified offer</string>
+    <string name="modificarOfertaMensaje">The offer has been modified successfully</string>
+    <string name="errorAlCrearOferta">Error creating offer</string>
+    <string name="restablecerImagenTitulo">Reset default profile picture</string>
+    <string name="restablecerImagenMensaje">Are you absolutely sure you want to reset the default profile picture?</string>
+    <string name="errorAlRecuperarContraseña">Failed to recover password</string>
+    <string name="recuperarContraseñaTitulo">Password recovered</string>
+    <string name="recuperarContraseñaMensaje">The password has been sent to the email associated with the user</string>
+    <string name="si">yes</string>
+    <string name="no">no</string>
+    <string name="ok">okay</string>
+
+    //Notifications
+    <string name="añadirFavoritoTitulo">Offer added to favorites</string>
+    <string name="añadirFavoritoTexto">The offer has been added to your favorites</string>
+    <string name="añadirFavoritoSubtexto">You can keep track of the offer more precisely if you wish</string>
+
+    //Mails
+    <string name="mail">You have requested the recovery of your password, so we send it to you attached to this email.
+        \nYou\'d better write it down and save it.
+        \nPassword is:</string>
+    <string name="ajustes">Settings</string>
+
+    //XMLs
+    <string name="english">English</string>
+    <string name="español">Spanish</string>
+    <string name="euskara">Basque</string>
+
+</resources>

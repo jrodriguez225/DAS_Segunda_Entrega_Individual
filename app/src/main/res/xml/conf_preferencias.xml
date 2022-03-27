@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:key="cat_ajustes"
+        app:title="@string/ajustes">
+
+        <SwitchPreferenceCompat
+            app:key="temaOscuro"
+            app:title="@string/temaOscuro"/>
+
+        <ListPreference
+            app:key="idioma"
+            app:title="@string/cambiarIdioma"
+            app:dialogTitle="@string/elegirIdioma"
+            app:entries="@array/idiomas"
+            app:entryValues="@array/codigosidiomas" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/activity_buscar.xml" value="0.21" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/activity_chatear.xml" value="0.25" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/activity_configurar.xml" value="0.1728395061728395" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/activity_identificarse.xml" value="0.25" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/activity_main.xml" value="0.1728395061728395" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/activity_mostrar_chats.xml" value="0.1728395061728395" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/activity_mostrar_oferta.xml" value="0.1728395061728395" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/activity_mostrar_perfil.xml" value="0.1728395061728395" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/activity_ofrecer.xml" value="0.25" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/activity_recuperar_contrasena.xml" value="0.33" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/activity_registrarse.xml" value="0.33" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/fila_buscar.xml" value="0.1728395061728395" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/fila_chatear.xml" value="0.1728395061728395" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/fila_mostrar_chats.xml" value="0.1" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/fragment_buscar.xml" value="0.25" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/fragment_chatear.xml" value="0.21" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/fragment_mostrar_chats.xml" value="0.1" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/fragment_mostrar_oferta.xml" value="0.1728395061728395" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/fragment_mostrar_perfil.xml" value="0.33" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout-land/toastlayout.xml" value="0.1" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/activity_buscar.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/activity_chatear.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/activity_configurar.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/activity_identificarse.xml" value="0.25" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/activity_main.xml" value="0.19396338446313707" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/activity_mostrar_chats.xml" value="0.25" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/activity_mostrar_oferta.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/activity_mostrar_perfil.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/activity_ofrecer.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/activity_recuperar_contrasena.xml" value="0.25" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/activity_registrarse.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/activity_registro.xml" value="0.25" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/buscador.xml" value="0.1" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/buscar.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/chat.xml" value="0.17826284674852205" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/chatear.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/fila.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/fila_buscador.xml" value="0.1" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/fila_buscar.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/fila_chat.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/fila_chatear.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/fila_mostrar_chats.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/fragment_buscar.xml" value="0.25" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/fragment_chatear.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/fragment_mostrar_chats.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/fragment_mostrar_oferta.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/fragment_mostrar_perfil.xml" value="0.33" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/informacion.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/lista.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/mostrar_chats.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/mostrar_oferta.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/mostrar_perfil.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/ofrecer.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/perfil.xml" value="0.1" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/layout/toastlayout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/menu/definicion_menu.xml" value="0.17685185185185184" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1285" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1285" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/xml/conf_preferencias.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jonro/AndroidStudioProjects/Primeraentregaindividual/app/src/main/res/xml/pref_config.xml" value="0.20364583333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

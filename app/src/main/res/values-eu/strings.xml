@@ -1,0 +1,104 @@
+<resources>
+
+    // Layouts
+    <string name="app_name">OFFERAPP</string>
+    <string name="en">en</string>
+    <string name="es">es</string>
+    <string name="eu">eu</string>
+    <string name="contentdescription">contentDescription</string>
+    <string name="contactar">kontaktatu</string>
+    <string name="de">NorK:</string>
+    <string name="para">Nori:</string>
+    <string name="mensaje">Mezua</string>
+    <string name="enviar">bidali</string>
+    <string name="buscar">Bilatu</string>
+    <string name="ofrecer">Eskaini</string>
+    <string name="favoritos">Gogokoenak</string>
+    <string name="chats">Berriketak</string>
+    <string name="nombre">Izena:</string>
+    <string name="descripcion">Deskribapena:</string>
+    <string name="empleo">lanpostua</string>
+    <string name="servicio">zerbitzua</string>
+    <string name="introduce_un_nombre">Sartu izen bat</string>
+    <string name="introduce_una_descripci_n">Sartu deskribapen bat</string>
+    <string name="perfil">Profila</string>
+    <string name="servicios">Zerbitzuak</string>
+    <string name="empleos">Lanpostuak</string>
+    <string name="ofertas">Eskaintzak</string>
+    <string name="contrase_a">Pasahitza</string>
+    <string name="nombre_de_usuario">Erabiltzaile Izena</string>
+    <string name="introduce_tu_nombre_de_usuario">Sartu zure erabiltzaile izena</string>
+    <string name="introduce_tu_contrase_a">Sartu zure pasahitza</string>
+    <string name="iniciar_sesi_n">saioa hasi</string>
+    <string name="registrarse">erregistratu</string>
+    <string name="cerrar_sesi_n">Saioa itxi</string>
+    <string name="correo">Posta</string>
+    <string name="introduce_un_nombre_de_usuario">Sartu erabiltzaile izena</string>
+    <string name="introduce_una_contrase_a">Sartu pasahitza</string>
+    <string name="introduce_un_correo">Sartu posta</string>
+    <string name="recuperar_contrase_a">pasahitza berreskuratu</string>
+    <string name="temaOscuro">Kolore iluna?</string>
+    <string name="mantenerSesionTitle">Saioa hasita mantendu?</string>
+    <string name="mantenerSesionSummary">Markatu aukera hau saioa hasita mantendu nahi baduzu</string>
+    <string name="cambiarIdioma">Hizkuntza aldatu</string>
+    <string name="elegirIdioma">Hizkuntza aukeratu</string>
+
+    // Toast
+    <string name="toastFavoritos">Eskaintza gogokoetatik ezabatu da</string>
+    <string name="toastOfertas">Eskaintza ezabatu da</string>
+    <string name="toastMensajes">Mezua ezabatu da</string>
+    <string name="toastChats">Ezabatu egin da erabiltzailearekin zenuen berriketa</string>
+
+    // Dialogs
+    <string name="eliminarFavoritoTitulo">Ezabatu eskaintza gogokoetatik</string>
+    <string name="eliminarFavoritoMensaje">Ziur al zaude eskaintza zure gogokoetatik ezabatu nahi duzula?</string>
+    <string name="eliminarMensajeTitulo">Ezabatu mezua</string>
+    <string name="eliminarMensajeMensaje">Ziur al zaude mezua ezabatu nahi duzula?</string>
+    <string name="registrarUsuarioTitulo">Erabiltzailea erregistratuta</string>
+    <string name="registrarUsuarioMensaje">Erabiltzailea behar bezala erregistratu da</string>
+    <string name="errorAlRegistrarse">Ezin izan da erregistratu</string>
+    <string name="usuarioExistente">Erabiltzailea jadanik existitzen da</string>
+    <string name="camposVacios">Eremuak ezin dira hutsik egon</string>
+    <string name="identificacionUsuarioTitulo">Erabiltzailea identifikatuta</string>
+    <string name="identificacionUsuarioMensaje">Erabiltzaileak behar bezala hasi du saioa</string>
+    <string name="errorAlIniciarSesion">Ezin izan da saioa hasi</string>
+    <string name="usuarioNoExistente">Erabiltzailea ez da existitzen</string>
+    <string name="credencialesErroneas">Erabiltzailea eta pasahitza ez datoz bat</string>
+    <string name="cerrarAplicacionTitulo">Aplikazioa itxi</string>
+    <string name="cerrarAplicacionMensaje">Ziur al zaude aplikazioa itxi nahi duzula?</string>
+    <string name="cerrarSesionMensaje">Ziur al zaude saioa amaitu nahi duzula?</string>
+    <string name="eliminarChatTitulo">Berriketa ezabatu</string>
+    <string name="eliminarChatMensaje">Ziur al zaude berriketa ezabatu nahi duzula?</string>
+    <string name="eliminarOfertaTitulo">Ezabatu eskaintza</string>
+    <string name="eliminarOfertaMensaje">Ziur al zaude eskaintza ezabatu nahi duzula?</string>
+    <string name="crearOfertaTitulo">Eskaintza sortuta</string>
+    <string name="crearOfertaMensaje">Eskaintza behar bezala sortu da</string>
+    <string name="modificarOfertaTitulo">Eskaintza aldatuta</string>
+    <string name="modificarOfertaMensaje">Eskaintza behar bezala aldatu da</string>
+    <string name="errorAlCrearOferta">Ezin izan da eskaintza sortu</string>
+    <string name="restablecerImagenTitulo">Berrezarri profileko argazki lehenetsia</string>
+    <string name="restablecerImagenMensaje">Ziur al zaude profileko argazki lehenetsia berrezarri nahi duzula?</string>
+    <string name="errorAlRecuperarContraseña">Ezin izan da pasahitza berreskuratu</string>
+    <string name="recuperarContraseñaTitulo">Pasahitza berreskuratuta</string>
+    <string name="recuperarContraseñaMensaje">Pasahitza erabiltzailearekin lotutako posta elektronikora bidali da</string>
+    <string name="si">bai</string>
+    <string name="no">ez</string>
+    <string name="ok">ados</string>
+
+    //Notifications
+    <string name="añadirFavoritoTitulo">Eskaintza gogokoetara gehituta</string>
+    <string name="añadirFavoritoTexto">Eskaintza zure gogokoetara gehitu da</string>
+    <string name="añadirFavoritoSubtexto">Nahi izanez gero, eskaintzaren jarraipena zehatzago egin dezakezu</string>
+
+    //Mails
+    <string name="mail">Pasahitza berreskuratzea eskatu duzu, beraz, mezu elektroniko honi erantsita bidaltzen dizugu.
+        \nHobe duzu idatzi eta gorde.
+        \nPasahitza hau da:</string>
+    <string name="ajustes">Ezarpenak</string>
+
+    //XMLs
+    <string name="english">Ingelesa</string>
+    <string name="español">Gaztelania</string>
+    <string name="euskara">Euskara</string>
+
+</resources>

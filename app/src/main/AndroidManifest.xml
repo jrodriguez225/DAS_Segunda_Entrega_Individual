@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.primeraentregaindividual" >
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/TemaDASNoActionBar">
+        <activity
+            android:name=".ActivityIdentificarse"
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden"
+            android:theme="@style/TemaDAS"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ActivityBuscar"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".ActivityMostrarPerfil"
+            android:launchMode="singleTask"></activity>
+        <activity
+            android:name=".ActivityChatear"
+            android:windowSoftInputMode="stateHidden"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".ActivityOfrecer"
+            android:windowSoftInputMode="stateHidden"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".ActivityMostrarOferta"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".ActivityMostrarChats"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".ActivityMain"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".ActivityRegistrarse"
+            android:windowSoftInputMode="stateHidden"
+            android:theme="@style/TemaDAS"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".ActivityRecuperarContraseña"
+            android:windowSoftInputMode="stateHidden"
+            android:theme="@style/TemaDAS"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".ActivityConfigurar"
+            android:launchMode="singleTask"></activity>
+    </application>
+
+</manifest>

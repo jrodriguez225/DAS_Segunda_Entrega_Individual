@@ -1,0 +1,104 @@
+<resources>
+
+    // Layouts
+    <string name="app_name">OFFERAPP</string>
+    <string name="en">en</string>
+    <string name="es">es</string>
+    <string name="eu">eu</string>
+    <string name="contentdescription">contentDescription</string>
+    <string name="contactar">contactar</string>
+    <string name="de">De:</string>
+    <string name="para">Para:</string>
+    <string name="mensaje">Mensaje</string>
+    <string name="enviar">enviar</string>
+    <string name="buscar">Buscar</string>
+    <string name="ofrecer">Ofrecer</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="chats">Chats</string>
+    <string name="nombre">Nombre:</string>
+    <string name="descripcion">Descripción:</string>
+    <string name="empleo">empleo</string>
+    <string name="servicio">servicio</string>
+    <string name="introduce_un_nombre">Introduce un nombre</string>
+    <string name="introduce_una_descripci_n">Introduce una descripción</string>
+    <string name="perfil">Perfil</string>
+    <string name="servicios">Servicios</string>
+    <string name="empleos">Empleos</string>
+    <string name="ofertas">Ofertas</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="nombre_de_usuario">Nombre de Usuario</string>
+    <string name="introduce_tu_nombre_de_usuario">Introduce tu nombre de usuario</string>
+    <string name="introduce_tu_contrase_a">Introduce tu contraseña</string>
+    <string name="iniciar_sesi_n">iniciar sesión</string>
+    <string name="registrarse">registrarse</string>
+    <string name="cerrar_sesi_n">Cerrar sesión</string>
+    <string name="correo">Correo</string>
+    <string name="introduce_un_nombre_de_usuario">Introduce un nombre de usuario</string>
+    <string name="introduce_una_contrase_a">Introduce una contraseña</string>
+    <string name="introduce_un_correo">Introduce un correo</string>
+    <string name="recuperar_contrase_a">recuperar contraseña</string>
+    <string name="temaOscuro">¿Tema oscuro?</string>
+    <string name="mantenerSesionTitle">¿Mantener sesión iniciada?</string>
+    <string name="mantenerSesionSummary">Marca esta opción si te gustaría mantener iniciada la sesión</string>
+    <string name="cambiarIdioma">Cambiar idioma</string>
+    <string name="elegirIdioma">Elige un idioma</string>
+
+    // Toast
+    <string name="toastFavoritos">Se ha eliminado de tus favoritos la oferta</string>
+    <string name="toastOfertas">Se ha eliminado la oferta</string>
+    <string name="toastMensajes">Se ha eliminado el mensaje</string>
+    <string name="toastChats">Se ha eliminado el chat que mantenías con el usuario</string>
+
+    // Dialogs
+    <string name="eliminarFavoritoTitulo">Eliminar oferta de favoritos</string>
+    <string name="eliminarFavoritoMensaje">¿Estás completamente seguro de que deseas eliminar la oferta de tus favoritos?</string>
+    <string name="eliminarMensajeTitulo">Eliminar mensaje</string>
+    <string name="eliminarMensajeMensaje">¿Estás completamente seguro de que deseas eliminar el mensaje?</string>
+    <string name="registrarUsuarioTitulo">Usuario registrado</string>
+    <string name="registrarUsuarioMensaje">El usuario se ha registrado con éxito</string>
+    <string name="errorAlRegistrarse">Error al registrarse</string>
+    <string name="usuarioExistente">El usuario ya existe</string>
+    <string name="camposVacios">Los campos no pueden estar vacíos</string>
+    <string name="identificacionUsuarioTitulo">Usuario identificado</string>
+    <string name="identificacionUsuarioMensaje">El usuario ha iniciado sesión con éxito</string>
+    <string name="errorAlIniciarSesion">Error al iniciar sesión</string>
+    <string name="usuarioNoExistente">El usuario no existe</string>
+    <string name="credencialesErroneas">El usuario y la contraseña no coinciden</string>
+    <string name="cerrarAplicacionTitulo">Cerrar aplicación</string>
+    <string name="cerrarAplicacionMensaje">¿Estás completamente seguro de que deseas cerrar la aplicación?</string>
+    <string name="cerrarSesionMensaje">¿Estás completamente seguro de que deseas cerrar sesión?</string>
+    <string name="eliminarChatTitulo">Eliminar chat</string>
+    <string name="eliminarChatMensaje">¿Estás completamente seguro de que deseas eliminar el chat?</string>
+    <string name="eliminarOfertaTitulo">Eliminar oferta</string>
+    <string name="eliminarOfertaMensaje">¿Estás completamente seguro de que deseas eliminar la oferta?</string>
+    <string name="crearOfertaTitulo">Oferta creada</string>
+    <string name="crearOfertaMensaje">La oferta ha sido creada con éxito</string>
+    <string name="modificarOfertaTitulo">Oferta modificada</string>
+    <string name="modificarOfertaMensaje">La oferta ha sido modificada con éxito</string>
+    <string name="errorAlCrearOferta">Error al crear oferta</string>
+    <string name="restablecerImagenTitulo">Restablecer imagen de perfil predeterminada</string>
+    <string name="restablecerImagenMensaje">¿Estás completamente seguro de que deseas restablecer la imagen de perfil predeterminada?</string>
+    <string name="errorAlRecuperarContraseña">Error al recuperar contraseña</string>
+    <string name="recuperarContraseñaTitulo">Contraseña recuperada</string>
+    <string name="recuperarContraseñaMensaje">Se ha enviado la contraseña al correo asociado al usuario</string>
+    <string name="si">sí</string>
+    <string name="no">no</string>
+    <string name="ok">ok</string>
+
+    //Notifications
+    <string name="añadirFavoritoTitulo">Oferta añadida a favoritos</string>
+    <string name="añadirFavoritoTexto">La oferta se ha añadido a tus favoritos</string>
+    <string name="añadirFavoritoSubtexto">Puedes llevar un seguimiento más preciso de la oferta si así lo deseas</string>
+
+    //Mails
+    <string name="mail">Has solicitado la recuperación de tu contraseña por lo que te la enviamos adjunta a este email.
+        \nLo mejor será que la apuntes y la guardes.
+        \nLa contraseña es:</string>
+    <string name="ajustes">Ajustes</string>
+
+    //XMLs
+    <string name="english">Inglés</string>
+    <string name="español">Castellano</string>
+    <string name="euskara">Euskera</string>
+
+</resources>
