@@ -1,6 +1,8 @@
 package com.example.primeraentregaindividual;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -17,10 +19,21 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 // Actividad que muestra el perfil del usuario actual o del resto de usuarios
 public class ActivityMostrarPerfil extends ActivityNoActionBar implements ClaseDialogo.ListenerDialogo, FragmentMostrarPerfil.ListenerFragment, FragmentMostrarOferta.ListenerFragment {
@@ -138,43 +151,105 @@ public class ActivityMostrarPerfil extends ActivityNoActionBar implements ClaseD
             if(boton.equals("positive")) {
                 imagen2.setImageResource(R.drawable.user_icon);
                 usuario.setImagenBitmap(null);
+
+                OneTimeWorkRequest trabajoPuntual = BBDD.getBBDD(this).updateImagen("null", nombre);
+                WorkManager.getInstance(this).enqueue(trabajoPuntual);
             }
         }
     }
 
-    static final int REQUEST_IMAGE_CAPTURE = 1; // Código para recibir la imagen sacada a través de la app
-    static final int PICK_IMAGE = 2; // Código para recibir la imagen escogida a través de la app
+    static final int CODIGO_GALERIA = 1; // Código para recibir la imagen escogida a través de la app
+    static final int CODIGO_FOTO = 2; // Código para recibir la imagen sacada a través de la app
+    static final int CODIGO_DE_PERMISO = 3; // Código utlizado para pedir permiso al usuario para sacar una foto
 
-    // Método que hace uso de un intent implícito para abrir una app con la que sacar una foto
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+    // Método que hace uso de un intent implícito para abrir una app con la que escoger una foto de la galería
+    private void seleccionarImagen(){
+        Intent elIntentGal = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(elIntentGal, CODIGO_GALERIA);
+    }
+
+    // Método que pide permiso al usuario y hace uso de un intent implícito para abrir una app con la que sacar una foto
+    private void sacarFotografia() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
+                PackageManager.PERMISSION_GRANTED) {
+            //EL PERMISO NO ESTÁ CONCEDIDO, PEDIRLO
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE))
+            {
+                // MOSTRAR AL USUARIO UNA EXPLICACIÓN DE POR QUÉ ES NECESARIO EL PERMISO
+
+            }
+            else{
+                //EL PERMISO NO ESTÁ CONCEDIDO TODAVÍA O EL USUARIO HA INDICADO
+                // QUE NO QUIERE QUE SE LE VUELVA A SOLICITAR
+
+            }
+            //PEDIR EL PERMISO
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    CODIGO_DE_PERMISO);
+        }
+        else {
+            //EL PERMISO ESTÁ CONCEDIDO, EJECUTAR LA FUNCIONALIDAD
+            intentSacarFotografia();
         }
     }
 
-    // Método que hace uso de un intent implícito para abrir una app con la que escoger una foto de la galería
-    private void openGallery(){
-        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(gallery, PICK_IMAGE);
+    // Método que recoge la respuesta del usuario respecto a la petición de permiso para sacar una foto
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode==CODIGO_DE_PERMISO) {
+                // Si la petición se cancela, granResults estará vacío
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // PERMISO CONCEDIDO, EJECUTAR LA FUNCIONALIDAD
+                    intentSacarFotografia();
+                }
+                else {
+                    // PERMISO DENEGADO, DESHABILITAR LA FUNCIONALIDAD O EJECUTAR ALTERNATIVA
+
+                }
+                return;
+        }
+    }
+
+    // Método que hace uso de un intent implícito para sacar una foto
+    private void intentSacarFotografia() {
+        Intent elIntentFoto= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(elIntentFoto, CODIGO_FOTO);
     }
 
     // Método que recoge tanto la imagen sacada como la imagen escogida y en cada caso la establece como foto de perfil
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            imagen2.setImageBitmap(imageBitmap);
-            usuario.setImagenBitmap(imageBitmap);
-        }
-        else if(requestCode == PICK_IMAGE && resultCode == RESULT_OK){
-            Uri imageUri = data.getData();
+        if (resultCode == RESULT_OK) {
             try {
-                Bitmap imageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-                imagen2.setImageBitmap(imageBitmap);
-                usuario.setImagenBitmap(imageBitmap);
+                Uri uri = null;
+                Bitmap bitmap = null;
+                if (requestCode == CODIGO_GALERIA) {
+                    uri = data.getData();
+                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+                }
+                else if (requestCode == CODIGO_FOTO) {
+                    Bundle extras = data.getExtras();
+                    bitmap = (Bitmap) extras.get("data");
+                    File eldirectorio = this.getFilesDir();
+                    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+                    String nombrefichero = "IMG_" + timeStamp + "_";
+                    File imagenFich = new File(eldirectorio, nombrefichero + ".jpg");
+                    OutputStream os = new FileOutputStream(imagenFich);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
+                    os.flush();
+                    os.close();
+
+                    uri = Uri.fromFile(imagenFich);
+                }
+                imagen2.setImageBitmap(bitmap);
+                usuario.setImagenBitmap(bitmap);
+
+                OneTimeWorkRequest trabajoPuntual = BBDD.getBBDD(this).updateImagen(uri.toString(), nombre);
+                WorkManager.getInstance(this).enqueue(trabajoPuntual);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -248,13 +323,13 @@ public class ActivityMostrarPerfil extends ActivityNoActionBar implements ClaseD
                 cameraIcon.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        dispatchTakePictureIntent();
+                        sacarFotografia();
                     }
                 });
                 galleryIcon.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        openGallery();
+                        seleccionarImagen();
                     }
                 });
                 contactar.setVisibility(View.INVISIBLE);

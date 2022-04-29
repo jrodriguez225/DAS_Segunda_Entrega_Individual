@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
 import java.util.HashMap;
 
 // Actividad que da la opción al usuario de recuperar su contraseña
@@ -25,44 +27,51 @@ public class ActivityRecuperarContraseña extends Activity implements ClaseDialo
 
         String nombreUsuario2 = nombreUsuario.getText().toString().trim();
 
-        BBDD.getBBDD(this).selectCatalogoUsuarios();
-        HashMap<String, Usuario> lista = CatalogoUsuarios.getCatalogoUsuarios().getLista();
-        DialogFragment dialogo;
-        if(!nombreUsuario2.equals("")) {
-            if (lista.containsKey(nombreUsuario2)) {
-                Usuario usuario = lista.get(nombreUsuario2);
-                String address = usuario.getCorreo();
-                String subject = getString(R.string.recuperarContraseñaTitulo);
-                String body = getString(R.string.mail) + " " + usuario.getContraseña();
+        OneTimeWorkRequest trabajoPuntual = BBDD.getBBDD(this).selectCatalogoUsuarios();
+        WorkManager.getInstance(this).getWorkInfoByIdLiveData(trabajoPuntual.getId())
+                .observe(this, status -> {
+                    if (status != null && status.getState().isFinished()) {
+                        String result = status.getOutputData().getString("result");
+                        BBDD.getBBDD(this).cargarCatalogoUsuarios(result);
+                        HashMap<String, Usuario> lista = CatalogoUsuarios.getCatalogoUsuarios().getLista();
+                        DialogFragment dialogo;
+                        if (!nombreUsuario2.equals("")) {
+                            if (lista.containsKey(nombreUsuario2)) {
+                                Usuario usuario = lista.get(nombreUsuario2);
+                                String address = usuario.getCorreo();
+                                String subject = getString(R.string.recuperarContraseñaTitulo);
+                                String body = getString(R.string.mail) + " " + usuario.getContraseña();
 
-                String user = "jonro1921@gmail.com";
-                String password = "dmnarfnbnvvyjdbv";
+                                String user = "jonro1921@gmail.com";
+                                String password = "dmnarfnbnvvyjdbv";
 
-                new Thread(new Runnable() {
+                                new Thread(new Runnable() {
 
-                    @Override
-                    public void run() {
-                        try {
-                            MailSender sender = new MailSender(user, password);
-                            sender.sendMail(subject, body, user, address);
-                        } catch (Exception e) {
-                            Log.e("SendMail", e.getMessage(), e);
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            MailSender sender = new MailSender(user, password);
+                                            sender.sendMail(subject, body, user, address);
+                                        } catch (Exception e) {
+                                            Log.e("SendMail", e.getMessage(), e);
+                                        }
+                                    }
+
+                                }).start();
+
+                                dialogo = new ClaseDialogo(1, getString(R.string.recuperarContraseñaTitulo), getString(R.string.recuperarContraseñaMensaje), getString(R.string.ok), null, null);
+                                dialogo.setCancelable(false);
+                            } else {
+                                dialogo = new ClaseDialogo(0, getString(R.string.errorAlRecuperarContraseña), getString(R.string.usuarioNoExistente), getString(R.string.ok), null, null);
+                            }
+                        } else {
+                            dialogo = new ClaseDialogo(0, getString(R.string.errorAlRecuperarContraseña), getString(R.string.camposVacios), getString(R.string.ok), null, null);
                         }
+                        dialogo.show(getSupportFragmentManager(), "etiqueta");
                     }
+                });
 
-                }).start();
-
-                dialogo = new ClaseDialogo(1,getString(R.string.recuperarContraseñaTitulo),getString(R.string.recuperarContraseñaMensaje),getString(R.string.ok),null,null);
-                dialogo.setCancelable(false);
-            }
-            else {
-                dialogo = new ClaseDialogo(0,getString(R.string.errorAlRecuperarContraseña),getString(R.string.usuarioNoExistente),getString(R.string.ok),null,null);
-            }
-        }
-        else {
-            dialogo = new ClaseDialogo(0,getString(R.string.errorAlRecuperarContraseña),getString(R.string.camposVacios),getString(R.string.ok),null,null);
-        }
-        dialogo.show(getSupportFragmentManager(), "etiqueta");
+        WorkManager.getInstance(this).enqueue(trabajoPuntual);
     }
 
     // Al pulsar OK en el diálogo que informa de que se ha enviado la contraseña al correo asociado al usuario

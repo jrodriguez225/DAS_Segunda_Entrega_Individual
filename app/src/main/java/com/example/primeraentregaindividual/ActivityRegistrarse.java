@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.EditText;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,7 +31,7 @@ public class ActivityRegistrarse extends Activity implements ClaseDialogo.Listen
         setContentView(R.layout.activity_registrarse);
     }
 
-    // Método que registra al usuario tanto en la base de datos local como en el catálogo de usuarios
+    // Método que registra al usuario tanto en la base de datos remota como en el catálogo de usuarios
     public void registrarse(View v) {
         EditText nombreUsuario = findViewById(R.id.nombreUsuario7);
         EditText contraseña = findViewById(R.id.contraseña5);
@@ -39,27 +41,46 @@ public class ActivityRegistrarse extends Activity implements ClaseDialogo.Listen
         String contraseña2 = contraseña.getText().toString().trim();
         String correo2 = correo.getText().toString().trim();
 
-        BBDD.getBBDD(this).selectCatalogoUsuarios();
-        HashMap<String, Usuario> lista = CatalogoUsuarios.getCatalogoUsuarios().getLista();
-        DialogFragment dialogo;
-        if(!nombreUsuario2.equals("") && !contraseña2.equals("") && !correo2.equals("")) {
-            if (!lista.containsKey(nombreUsuario2)) {
-                BBDD.getBBDD(this).insertUsuario(nombreUsuario2, contraseña2, correo2);
-                Usuario usuario = new Usuario(nombreUsuario2, contraseña2, correo2);
-                lista.put(nombreUsuario2, usuario);
-                CatalogoUsuarios.getCatalogoUsuarios().setUsuarioActual(usuario);
+        OneTimeWorkRequest trabajoPuntual = BBDD.getBBDD(this).selectCatalogoUsuarios();
+        WorkManager.getInstance(this).getWorkInfoByIdLiveData(trabajoPuntual.getId())
+                .observe(this, status -> {
+                    if (status != null && status.getState().isFinished()) {
+                        String result = status.getOutputData().getString("result");
+                        BBDD.getBBDD(this).cargarCatalogoUsuarios(result);
+                        HashMap<String, Usuario> lista = CatalogoUsuarios.getCatalogoUsuarios().getLista();
+                        if(!nombreUsuario2.equals("") && !contraseña2.equals("") && !correo2.equals("")) {
+                            if (!lista.containsKey(nombreUsuario2)) {
+                                OneTimeWorkRequest trabajoPuntual2 = BBDD.getBBDD(this).insertUsuario(nombreUsuario2, contraseña2, correo2);
+                                WorkManager.getInstance(this).getWorkInfoByIdLiveData(trabajoPuntual2.getId())
+                                        .observe(this, status2 -> {
+                                            if (status2 != null && status2.getState().isFinished()) {
+                                                String result2 = status2.getOutputData().getString("result");
 
-                dialogo = new ClaseDialogo(1,getString(R.string.registrarUsuarioTitulo),getString(R.string.registrarUsuarioMensaje),getString(R.string.ok),null,null);
-                dialogo.setCancelable(false);
-            }
-            else {
-                dialogo = new ClaseDialogo(0,getString(R.string.errorAlRegistrarse),getString(R.string.usuarioExistente),getString(R.string.ok),null,null);
-            }
-        }
-        else {
-            dialogo = new ClaseDialogo(0,getString(R.string.errorAlRegistrarse),getString(R.string.camposVacios),getString(R.string.ok),null,null);
-        }
-        dialogo.show(getSupportFragmentManager(), "etiqueta");
+                                                Usuario usuario = new Usuario(nombreUsuario2, result2, correo2);
+                                                lista.put(nombreUsuario2, usuario);
+                                                CatalogoUsuarios.getCatalogoUsuarios().setUsuarioActual(usuario);
+
+                                                DialogFragment dialogo = new ClaseDialogo(1,getString(R.string.registrarUsuarioTitulo),getString(R.string.registrarUsuarioMensaje),getString(R.string.ok),null,null);
+                                                dialogo.setCancelable(false);
+                                                dialogo.show(getSupportFragmentManager(), "etiqueta");
+                                            }
+                                        });
+
+                                WorkManager.getInstance(this).enqueue(trabajoPuntual2);
+                            }
+                            else {
+                                DialogFragment dialogo = new ClaseDialogo(0,getString(R.string.errorAlRegistrarse),getString(R.string.usuarioExistente),getString(R.string.ok),null,null);
+                                dialogo.show(getSupportFragmentManager(), "etiqueta");
+                            }
+                        }
+                        else {
+                            DialogFragment dialogo = new ClaseDialogo(0,getString(R.string.errorAlRegistrarse),getString(R.string.camposVacios),getString(R.string.ok),null,null);
+                            dialogo.show(getSupportFragmentManager(), "etiqueta");
+                        }
+                    }
+                });
+
+        WorkManager.getInstance(this).enqueue(trabajoPuntual);
     }
 
     // Al pulsar OK en el diálogo que informa de que el usuario se ha regisatrado correctamente

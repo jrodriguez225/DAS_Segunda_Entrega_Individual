@@ -2,6 +2,8 @@ package com.example.primeraentregaindividual;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -50,30 +52,47 @@ public class ActivityIdentificarse extends Activity implements ClaseDialogo.List
         String nombreUsuario2 = nombreUsuario.getText().toString().trim();
         String contraseña2 = contraseña.getText().toString().trim();
 
-        BBDD.getBBDD(this).selectCatalogoUsuarios();
-        HashMap<String, Usuario> lista = CatalogoUsuarios.getCatalogoUsuarios().getLista();
-        DialogFragment dialogo;
-        if(!nombreUsuario2.equals("") && !contraseña2.equals("")) {
-            if (lista.containsKey(nombreUsuario2)) {
-                Usuario usuario = lista.get(nombreUsuario2);
-                if (contraseña2.equals(usuario.getContraseña())) {
-                    CatalogoUsuarios.getCatalogoUsuarios().setUsuarioActual(usuario);
+        OneTimeWorkRequest trabajoPuntual = BBDD.getBBDD(this).selectCatalogoUsuarios();
+        WorkManager.getInstance(this).getWorkInfoByIdLiveData(trabajoPuntual.getId())
+                .observe(this, status -> {
+                    if (status != null && status.getState().isFinished()) {
+                        String result = status.getOutputData().getString("result");
+                        BBDD.getBBDD(this).cargarCatalogoUsuarios(result);
+                        HashMap<String, Usuario> lista = CatalogoUsuarios.getCatalogoUsuarios().getLista();
+                        if (!nombreUsuario2.equals("") && !contraseña2.equals("")) {
+                            if (lista.containsKey(nombreUsuario2)) {
+                                Usuario usuario = lista.get(nombreUsuario2);
+                                OneTimeWorkRequest trabajoPuntual2 = BBDD.getBBDD(this).verificarContraseña(contraseña2, usuario.getContraseña());
+                                WorkManager.getInstance(this).getWorkInfoByIdLiveData(trabajoPuntual2.getId())
+                                        .observe(this, status2 -> {
+                                            if (status2 != null && status2.getState().isFinished()) {
+                                                String result2 = status2.getOutputData().getString("result");
+                                                DialogFragment dialogo;
+                                                if (result2.equals("true")) {
+                                                    CatalogoUsuarios.getCatalogoUsuarios().setUsuarioActual(usuario);
 
-                    dialogo = new ClaseDialogo(1,getString(R.string.identificacionUsuarioTitulo),getString(R.string.identificacionUsuarioMensaje),getString(R.string.ok),null,null);
-                    dialogo.setCancelable(false);
-                }
-                else {
-                    dialogo = new ClaseDialogo(0,getString(R.string.errorAlIniciarSesion),getString(R.string.credencialesErroneas),getString(R.string.ok),null,null);
-                }
-            }
-            else {
-                dialogo = new ClaseDialogo(0,getString(R.string.errorAlIniciarSesion),getString(R.string.usuarioNoExistente),getString(R.string.ok),null,null);
-            }
-        }
-        else {
-            dialogo = new ClaseDialogo(0,getString(R.string.errorAlIniciarSesion),getString(R.string.camposVacios),getString(R.string.ok),null,null);
-        }
-        dialogo.show(getSupportFragmentManager(), "etiqueta");
+                                                    dialogo = new ClaseDialogo(1, getString(R.string.identificacionUsuarioTitulo), getString(R.string.identificacionUsuarioMensaje), getString(R.string.ok), null, null);
+                                                    dialogo.setCancelable(false);
+                                                } else {
+                                                    dialogo = new ClaseDialogo(0, getString(R.string.errorAlIniciarSesion), getString(R.string.credencialesErroneas), getString(R.string.ok), null, null);
+                                                }
+                                                dialogo.show(getSupportFragmentManager(), "etiqueta");
+                                            }
+                                        });
+
+                                WorkManager.getInstance(this).enqueue(trabajoPuntual2);
+                            } else {
+                                DialogFragment dialogo = new ClaseDialogo(0, getString(R.string.errorAlIniciarSesion), getString(R.string.usuarioNoExistente), getString(R.string.ok), null, null);
+                                dialogo.show(getSupportFragmentManager(), "etiqueta");
+                            }
+                        } else {
+                            DialogFragment dialogo = new ClaseDialogo(0, getString(R.string.errorAlIniciarSesion), getString(R.string.camposVacios), getString(R.string.ok), null, null);
+                            dialogo.show(getSupportFragmentManager(), "etiqueta");
+                        }
+                    }
+                });
+
+        WorkManager.getInstance(this).enqueue(trabajoPuntual);
     }
 
     // Al pulsar OK en el diálogo que informa de que se ha iniciado sesión correctamente

@@ -1,7 +1,7 @@
 <resources>
 
     // Layouts
-    <string name="app_name">OFFERAPP</string>
+    <string name="app_name">OfferApp</string>
     <string name="en">en</string>
     <string name="es">es</string>
     <string name="eu">eu</string>
